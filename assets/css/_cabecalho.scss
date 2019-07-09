@@ -1,0 +1,135 @@
+#header{
+
+	.global{
+		background-color: white;
+		height: 54px;
+		.container{
+			height: 100%;
+			@include display(flex);
+			position: relative;
+
+		}
+		button.btmenuglobal{
+			height: 100%;
+			width: 54px;
+			display: none;
+			@include align-items(center);
+			@include justify-content(center);
+			i{
+				display: block;
+
+			}
+		}
+
+		a.logo-principal{
+			height: 100%;
+			@include display(inline-flex);
+			@include align-items(center);
+			img{
+				display: block;
+				height: 40%;
+				width: auto;
+			}
+		}
+
+		ul.itens-globais{
+			display: inline-block;
+			height: 100%;
+			& > li{
+				display: inline-block;
+				height: 100%;
+				&:hover{
+					& > a{
+						color: white;
+						background-color: $grafite;
+					}
+					& > .submenu-global{
+						@include display(flex);
+					}
+				}
+				& > a{
+					color: inherit;
+					@include display(flex);
+					@include align-items(center);
+					height: 100%;
+					padding: 0 1em;
+					text-transform: uppercase;
+					background-color: white;
+					&:hover{
+						text-decoration: none;
+					}
+					
+				}
+				.submenu-global{
+					position: absolute;
+					left: 0;
+					top: 100%;
+					width: 100%;
+					display: none;
+					background-color: $grafite;
+					padding: 1em 2em;
+					.categorias{
+						width: 20%;
+						& > li{
+							display: block;
+							margin-bottom: 0.5em;
+							& > a{
+								color: white;
+							}
+						}
+					}
+
+					.ultimos-posts{
+						width: 80%;
+						@include display(flex);
+						@include flex-direction(column);
+						@include align-items(flex-end);
+
+						ul.posts{
+							width: 100%;
+							@include display(flex);
+
+							li{
+								width: 25%;
+								margin-right: 1em;
+								&:last-child{
+									margin-right: 0;
+								}
+								a{
+									color: inherit;
+									display: block;
+									background-color: white;
+									width: 100%;
+									padding: 0.75em;
+									.img{
+										width: 100%;
+										height: 120px;
+										position: relative;
+										background-color: grey;
+										img{
+											position: absolute;
+											height: 1px;
+											width: 1px;
+											top: -10000px;
+											left: -10000px;
+										}
+									}
+									p{
+										font-size: 0.8em;
+										text-align: center;
+									}
+								}
+							}
+						}
+
+						a.mais-posts{
+							margin-top: 1em;
+							font-size: 0.8em;
+							color: white;
+						}
+					}
+				}
+			}
+		}
+	}
+}

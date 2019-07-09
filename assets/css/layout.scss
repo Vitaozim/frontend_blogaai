@@ -6,7 +6,8 @@ $output-bourbon-deprecation-warnings: false !default;
 @import 'fontawesomepro';
 @import 'padroes';	
 
-
+@import 'cabecalho';
 
 body{
+	min-height: 100vh;
 }
