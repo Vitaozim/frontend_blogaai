@@ -1,5 +1,4 @@
 #header{
-
 	.global{
 		background-color: white;
 		height: 54px;
@@ -25,6 +24,7 @@
 			height: 100%;
 			@include display(inline-flex);
 			@include align-items(center);
+			padding-right: 1em;
 			img{
 				display: block;
 				height: 40%;
@@ -129,6 +129,60 @@
 						}
 					}
 				}
+			}
+		}
+
+		.busca-e-favoritos{
+			position: absolute;
+			right: 0;
+			top: 0;
+			height: 100%;
+			
+			button.btsearch{
+				@include display(inline-flex);
+				@include align-items(center);
+				height: 100%;
+				padding: 0 0.4em;
+				span{
+					text-transform: uppercase;
+					margin-right: 0.6em;
+				}
+			}
+			a.favoritos{
+				height: 100%;
+				padding: 0 0.4em;
+				color: inherit;
+			}
+		}
+	}
+
+	.subglobal{
+		background-color: $grafite;
+		height: 32px;
+		overflow-x: auto;
+		ul.container{
+			height: 100%;
+			white-space: nowrap;
+
+		}
+		li{
+			height: 100%;
+			@include display(inline-flex);
+			@include align-items(center);
+			&:not(:last-child){
+				border-right: 1px solid black;
+			}
+			&:first-child{
+				a{
+					padding-left: 0;
+				}
+			}
+			a{
+
+				display: block;
+				font-size: 0.85em;
+				color: white;
+				padding: 0 0.7em;
 			}
 		}
 	}

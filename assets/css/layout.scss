@@ -7,6 +7,7 @@ $output-bourbon-deprecation-warnings: false !default;
 @import 'padroes';	
 
 @import 'cabecalho';
+@import 'componentes';
 
 body{
 	min-height: 100vh;

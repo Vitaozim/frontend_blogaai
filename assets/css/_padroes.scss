@@ -71,6 +71,11 @@ h1,h2,h3,h4,h5,h6,p,ul,ol,figure{
 	margin: 0;
 }
 
+h1{
+	font-weight: 800;
+	font-size: 2.25em;
+}
+
 ul,ol{
 	list-style: none;
 	padding-left: 0;
@@ -109,11 +114,53 @@ button{
 	background-color: transparent;
 	font-family: inherit;
 	padding: 0;
+	color: inherit;
 	&:hover{
 		cursor: pointer;
 	}
 }
 
+// botao padrao "padrao": Fundo grafite, texto branco.
+.botao-padrao, a.botao-padrao, button.botao-padrao{
+	display: block;
+	font-size: 1.25em;
+	font-family: $fonte-titulo;
+	font-weight: 800;
+	padding: 0.75em 1.75em;
+	text-align: center;
+	text-decoration: none;
+	&:hover{
+		text-decoration: none;
+	}
+	color: white;
+	background-color: $grafite;
+	&.grafite{
+		color: white;
+		background-color: $grafite;
+		&.negativo{
+			color: $grafite;
+			background-color: $cinza;
+		}
+	}
+
+	&.vermelho{
+		color: white;
+		background-color: $vermelho;
+		&.negativo{
+			color: $vermelho;
+			background-color: $rosa;
+		}
+	}
+
+	&.verde{
+		color: white;
+		background-color: $verde-escuro;
+		&.negativo{
+			color: $verde-escuro;
+			background-color: $verde-claro;
+		}
+	}
+}
 
 
 

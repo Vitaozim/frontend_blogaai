@@ -1,0 +1,41 @@
+.blog-rentavel{
+	background-color: $rosa;
+	background-size: 50% auto;
+	background-position: right center;
+	background-repeat: no-repeat;
+	.container{
+		@include display(flex);
+	}
+	.msg{
+		padding: 8em 0 5em;
+		width: 50%;
+		@include display(flex);
+		@include flex-direction(column);
+		@include justify-content(center);
+		@include align-items(center);
+		h1,p,a{
+			text-align: center;
+		}
+
+		h1, p{
+			color: $grafite;
+		}
+
+		a.link-quero-blog{
+			margin-top: 2em;
+		}
+	}
+
+
+	/* versao menor */
+	&.menor{
+		font-size: 0.8em;
+		background-position: left center;
+		.container{
+			@include justify-content(flex-end);
+		}
+		.msg{
+			padding: 5em 0 5em;
+		}
+	}
+}
