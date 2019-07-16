@@ -8,6 +8,7 @@
 	}
 	.msg{
 		padding: 8em 0 5em;
+		padding-right: 2em;
 		width: 50%;
 		@include display(flex);
 		@include flex-direction(column);
@@ -36,6 +37,8 @@
 		}
 		.msg{
 			padding: 5em 0 5em;
+			padding-left: 2em;
+			padding-right: 0;
 		}
 	}
 }
