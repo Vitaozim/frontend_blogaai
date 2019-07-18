@@ -1,13 +1,12 @@
 #header{
+	position: relative;
+	z-index: 2;
 	.global{
 		background-color: white;
 		height: 54px;
-		.container{
-			height: 100%;
-			@include display(flex);
-			position: relative;
+		@include display(flex);
+		position: relative;
 
-		}
 		button.btmenuglobal{
 			height: 100%;
 			width: 54px;
@@ -27,7 +26,7 @@
 			padding-right: 1em;
 			img{
 				display: block;
-				height: 40%;
+				height: 50%;
 				width: auto;
 			}
 		}
@@ -52,7 +51,7 @@
 					@include display(flex);
 					@include align-items(center);
 					height: 100%;
-					padding: 0 1em;
+					padding: 0 0.8em;
 					text-transform: uppercase;
 					background-color: white;
 					&:hover{
@@ -156,15 +155,18 @@
 		}
 	}
 
-	.subglobal{
-		background-color: $grafite;
-		height: 32px;
-		overflow-x: auto;
-		ul.container{
-			height: 100%;
-			white-space: nowrap;
+	ul.subglobal{
 
+		&, &:before{
+			background-color: $grafite;
 		}
+		height: 32px;
+		
+		@media screen and (max-width: $tamanho-tablet){
+			overflow-x: auto;
+			white-space: nowrap;
+		}
+
 		li{
 			height: 100%;
 			@include display(inline-flex);

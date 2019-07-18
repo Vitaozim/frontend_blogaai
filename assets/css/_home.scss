@@ -1,0 +1,24 @@
+.na-midia{
+	padding-top: 1em;
+	padding-bottom: 1em;
+	h3{
+		font-size: 1.2em;
+		font-weight: bold;
+		color: $grafite-claro;
+		margin-bottom: 1em;
+	}
+
+	ul{
+		@include display(flex);
+		@include justify-content(space-between);
+		li{
+			img{
+				display: block;
+				height: 40px;
+				width: auto;
+				@include filter(grayscale(100));
+				opacity: 0.6;
+			}
+		}
+	}
+}
