@@ -116,18 +116,35 @@
 	background-color: white;
 	box-shadow: $boxshadow-padrao;
 	padding: 1em;
+	a.link-full{
+		position: absolute;
+		top: 0; left: 0;
+		width: 100%; height: 100%;
+		z-index: 2;
+	}
 	.container-imagem{
 		background-color: $cinza;
 		width: 100%;
 		height: 0;
-		padding-top: 100%;
 		position: relative;
+		padding-bottom: 100%;
+
 	}
 
 	.container-texto{
+		margin-top: 1em;
+		color: $grafite;
+		p{
+			font-weight: bold;
+		}
 		a.bookmark{
 			color: $vermelho;
 			float: right;
+			margin: 0 0 0.5em 0.5em;
+			position: relative;
+			z-index: 3;
 		}
 	}
+
+	
 }

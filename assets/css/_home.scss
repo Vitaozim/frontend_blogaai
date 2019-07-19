@@ -76,15 +76,13 @@
 	}
 	.posts{
 		margin-top: 2em;
-		display: grid;
-		grid-template-columns: repeat(4, auto);
-		grid-template-rows: repeat(4, auto);
-		grid-gap: 1em;
-		// @include justify-content(space-between);
-		// @include flex-wrap(wrap);
+		@include display(flex);
+		@include justify-content(space-between);
+		@include flex-wrap(wrap);
 		.card{
-			// width: 20%;
-			// margin-right: 5%;
+			display: block;
+			width: calc(25% - 1.5em);
+			margin-bottom: 2em;
 		}
 	}
 }
