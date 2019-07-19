@@ -55,3 +55,79 @@
 		}
 	}
 }
+
+
+.newsletter{
+	padding-top: 2em;
+	padding-bottom: 2em;
+	&, &:before{
+		background-color: $cinza;
+	}
+	@include display(flex);
+	.call2action{
+		padding-right: 3em;
+		h1{
+			font-size: 2.4em;
+			color: $grafite;
+		}
+
+		p{
+			font-family: $fonte-titulo;
+			font-weight: 800;
+		}
+	}
+
+	.form{
+		@include flex-shrink(0);
+		min-width: 40%;
+		&.v{
+			display: none;
+		}
+	}
+
+
+	&.container.menor{
+		.call2action{
+			h1{
+				font-size: 2em;
+				font-weight: bold;
+			}
+
+			p{
+				font-family: $fonte-corpo;
+				font-weight: normal;
+			}
+		}
+
+		.form{
+			&.h{
+				display: none;
+			}
+
+			&.v{
+				display: block;
+			}
+		}
+	}
+}
+
+
+.card{
+	background-color: white;
+	box-shadow: $boxshadow-padrao;
+	padding: 1em;
+	.container-imagem{
+		background-color: $cinza;
+		width: 100%;
+		height: 0;
+		padding-top: 100%;
+		position: relative;
+	}
+
+	.container-texto{
+		a.bookmark{
+			color: $vermelho;
+			float: right;
+		}
+	}
+}
