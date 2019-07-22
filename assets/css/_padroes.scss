@@ -42,7 +42,7 @@ $boxshadow-padrao: 0px 0px 12px 0 rgba(0,0,0,0.12);
 
 $tamanho-smart-pequeno: 400px;
 $tamanho-smartphone: 600px;
-$tamanho-tablet-vertical: 800px;
+$tamanho-tablet-vertical: 840px;
 $tamanho-tablet: 1000px;
 $tamanho-notebook: 1250px;
 $tamanho-gigante: 1600px;
@@ -58,6 +58,13 @@ $tamanho-gigante: 1600px;
 	font-family: $fonte-corpo;
 	overflow-x: hidden;
 	color: $grafite-claro;
+	@media screen and (max-width: $tamanho-tablet){
+		font-size: 15px;
+	}
+
+	@media screen and (max-width: $tamanho-smartphone){
+		font-size: 14px;
+	}
 }
 
 body{
@@ -204,10 +211,10 @@ $largura-container-menor: 800px;
 			}
 		}
 
-		@media (max-width: $tamanho-tablet){
+		@media (max-width: $tamanho-tablet-vertical){
 			width: 100%;
-			padding-right: 30px;
-			padding-left: 30px;
+			padding-right: 15px;
+			padding-left: 15px;
 			&:before{
 				content: none;
 			}

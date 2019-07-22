@@ -9,8 +9,7 @@
 	}
 
 	ul{
-		@include display(flex);
-		@include justify-content(space-between);
+		
 		li{
 			width: 160px;
 			height: 80px;
@@ -35,6 +34,12 @@
 	.categorias-e-estatisticas{
 		@include display(flex);
 		@include justify-content(space-between);
+		@media screen and (max-width: $tamanho-notebook){
+			@include flex-direction(column);
+			// @include justify-content(center);
+			@include align-items(center);
+
+		}
 		.categorias{
 			a{
 				color: inherit;
@@ -72,6 +77,15 @@
 					}
 				}
 			}
+
+			@media screen and (max-width: $tamanho-notebook){
+				margin-top: 2em;
+				li{
+					p{
+						text-align: center;
+					}
+				}
+			}
 		}
 	}
 	.posts{
@@ -83,6 +97,20 @@
 			display: block;
 			width: calc(25% - 1.5em);
 			margin-bottom: 2em;
+			@media screen and (max-width: $tamanho-tablet){
+				width: calc(25% - 0.75em);
+				margin-bottom: 1em;
+			}
+
+			@media screen and (max-width: $tamanho-smartphone){
+				width: calc(50% - 0.5em);
+			}
+
+			@media screen and (max-width: $tamanho-smart-pequeno){
+				width: 100%;
+			}
+
+
 		}
 	}
 
@@ -151,7 +179,7 @@
 
 	.slider-dicas{
 		.item-dica{
-			padding: 15px;
+			padding: 12px;
 		}
 
 		.card{

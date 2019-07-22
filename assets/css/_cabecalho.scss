@@ -113,7 +113,7 @@
 					}
 					& > a{
 						@media screen and (max-width: $tamanho-notebook){
-							font-size: 0.8em;
+							font-size: 0.9em;
 						}
 						color: inherit;
 						@include display(flex);
@@ -184,7 +184,7 @@
 										}
 										p{
 											color: $grafite;
-											font-size: 0.8em;
+											font-size: 0.9em;
 											margin-top: 1em;
 											text-align: center;
 										}
@@ -194,7 +194,7 @@
 
 							a.ver-mais{
 								margin-top: 1em;
-								font-size: 0.8em;
+								font-size: 0.9em;
 								color: white;
 							}
 						}
@@ -266,7 +266,7 @@
 									// }
 									& > a{
 										color: inherit;
-										font-size: 0.8em;
+										font-size: 0.9em;
 									}
 								}
 							}
@@ -302,7 +302,7 @@
 			@include display(flex);
 
 			@media screen and (max-width: $tamanho-notebook){
-				font-size: 0.8em;
+				font-size: 0.9em;
 			}
 			
 			button.btsearch{
