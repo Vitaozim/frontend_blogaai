@@ -85,4 +85,136 @@
 			margin-bottom: 2em;
 		}
 	}
+
+	a.ver-mais{
+		display: block;
+	}
+}
+
+
+
+
+.materiais-baixar{
+	padding-top: 3em;
+	padding-bottom: 3em;
+	&, &:before{
+		background-color: $rosa;
+	}
+
+	& > h1{
+		text-align: center;
+		color: $grafite;
+		margin-bottom: 1.5em;
+	}
+	.links-e-ilu{
+		@include display(flex);
+		@include align-items(flex-start);
+		& > div{width: 50%;}
+	}
+
+	.links-materiais{
+		@include display(flex);
+		.card{
+			width: calc(50% - 2em);
+			margin-right: 2em;
+		}
+	}
+
+	.ilu-e-vertudo{
+		position: relative;
+		img{
+			display: block;
+			width: calc(100% - 4em);
+			margin: 0 auto;
+			height: auto;
+		}
+
+		a.ver-mais{
+			position: absolute;
+			bottom: 0; right: 2em;
+		}
+	}
+}
+
+
+
+
+.dicas-para-blogs{
+	padding-top: 2em;
+	padding-bottom: 2em;
+
+	& > h2{
+		color: $grafite;
+		font-size: 2em;
+		margin-bottom: 1em;
+	}
+
+	.slider-dicas{
+		.item-dica{
+			padding: 15px;
+		}
+
+		.card{
+			
+		}
+	}
+}
+
+
+
+
+.cursos-treinamentos{
+	padding-top: 2em;
+	padding-bottom: 2em;
+	&, &:before{
+		background-color: $verde-claro;
+	}
+
+
+	h1{
+		text-align: center;
+		margin-bottom: 1em;
+		text-align: center;
+		color: $grafite;
+	}
+
+	.conteudo{
+		@include display(flex);
+		
+		.ilustra-ilustrativa{
+			width: 50%;
+			background-image: url(../media/ilustra2.svg);
+			background-size: 95% auto;
+			background-position: top center;
+			background-repeat: no-repeat;
+		}
+		.card{
+			width: 50%;
+		}
+	}
+	
+}
+
+
+.ferramentas{
+	padding-top: 2em;
+	padding-bottom: 2em;
+	& > h2{
+		font-size: 1.5em;
+		margin-bottom: 1em;
+	}
+
+	.conteudo{
+		@include display(flex);
+		@include flex-wrap(wrap);
+		@include justify-content(space-between);
+		.card{
+			width: calc(50% - 1em);
+			margin-bottom: 2em;
+			.container-imagem{
+				width: 33%;
+			}
+		}
+
+	}
 }

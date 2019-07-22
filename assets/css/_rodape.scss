@@ -1,0 +1,134 @@
+#footer{
+	.outros{
+		&, &:before{
+			background-color: $rosa-claro;
+		}
+		padding-top: 2em;
+		padding-bottom: 2em;
+		@include display(flex);
+		@include justify-content(space-between);
+		& > div{
+			width: calc(33.33333% - 1.33333em);
+			& > h2{
+				color: $vermelho;
+				font-size: 1.5em;
+				margin-bottom: 1em;
+			}
+
+			a.ver-mais{
+				color: $vermelho;
+				font-size: 0.9em;
+			}
+		}
+
+		.perfil{
+			.foto-perfil{
+				float: left;
+				width: 40%;
+				height: auto;
+				margin: 0 0.5em 0.5em 0;
+			}
+
+			h3,p{
+				color: $grafite;
+			}
+
+			h3{
+				font-size: 1.2em;
+			}
+			p{
+				font-size: 0.9em;
+			}
+		}
+
+		.insta{
+			.fotos-insta{
+				@include display(flex);
+				@include flex-wrap(wrap);
+				@include justify-content(space-between);
+				li{
+					width: calc(25% - .375em);
+					margin-bottom: 0.5em;
+					a{
+						display: block;
+						width: 100%;
+						img{
+							display: block;
+							width: 100%;
+							height: auto;
+						}
+					}
+				}
+			}
+		}
+
+
+		.links-importantes{
+			ul.os-links{
+				column-count: 3;
+				column-gap: 1em;
+				margin-bottom: 1em;
+				a{
+					color: $grafite;
+					font-size: 0.9em;
+				}
+			}
+
+
+			ul.redes-sociais{
+				@include display(flex);
+				@include justify-content(center);
+				li{
+					&:not(:last-child){
+						margin-right: 0.5em;
+					}
+				}
+
+			}
+		}
+	}
+
+	.citacao{
+		padding-top: 3em;
+		padding-bottom: 3em;
+		@include display(flex);
+		@include justify-content(center);
+		.conjunto{
+			@include display(flex);
+			@include justify-content(center);
+			max-width: 700px;
+			p{
+				padding: 0 1em;
+				font-size: 1.2em;
+				font-style: italic;
+				text-align: center;
+			}
+
+			i{
+				font-size: 1.5em;
+				line-height: inherit;
+				opacity: 0.5;
+			}
+		}
+		
+	}
+
+	.fimsite{
+		font-size: 0.9em;
+		padding-top: 1em;
+		padding-bottom: 1em;
+		@include display(flex);
+		@include justify-content(space-between);
+		&, &:before{
+			background-color: $grafite;
+		}
+		p{
+			color: white;
+			line-height: 1;
+			a{
+				font-weight: bold;
+				color: inherit;
+			}
+		}
+	}
+}

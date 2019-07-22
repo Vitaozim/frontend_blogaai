@@ -1,11 +1,41 @@
 #header{
 	position: relative;
-	z-index: 2;
-	.global{
+	z-index: 4;
+
+	.container-menu{
+		display: block;
+		margin: 0 auto;
+		width:$largura-container;
+		@media screen{
+			@media (max-width: $tamanho-notebook){
+				width: 100%;
+				// padding-right: 30px;
+				// padding-left: 30px;
+				&:before{
+					content: none;
+				}
+			}
+
+			@media (max-width: $tamanho-tablet){
+			}
+
+			@media (max-width: $tamanho-smartphone){
+				// padding-right: 15px;
+				// padding-left: 15px;
+			}
+		}
+	}
+
+	
+	& > .global{
 		background-color: white;
 		height: 54px;
-		@include display(flex);
-		position: relative;
+		
+		.container-menu{
+			height: 100%;
+			@include display(flex);
+			position: relative;
+		}
 
 		button.btmenuglobal{
 			height: 100%;
@@ -15,7 +45,13 @@
 			@include justify-content(center);
 			i{
 				display: block;
+			}
 
+			@media screen and (max-width: $tamanho-tablet){
+				display: block;
+				&.menu-visivel{
+
+				}
 			}
 		}
 
@@ -24,6 +60,9 @@
 			@include display(inline-flex);
 			@include align-items(center);
 			padding-right: 1em;
+			@media screen and (max-width: $tamanho-notebook){padding-left: 1em}
+			@media screen and (max-width: $tamanho-tablet){padding-left: 0}
+
 			img{
 				display: block;
 				height: 50%;
@@ -31,160 +70,294 @@
 			}
 		}
 
-		ul.itens-globais{
-			display: inline-block;
+		.itens-globais{
 			height: 100%;
-			& > li{
-				display: inline-block;
+
+			@include keyframes(btFecharAparece){
+				0%{@include transform(scale(0))}
+				100%{@include transform(scale(1))}
+			}
+
+			button.fecha-menu-retratil{
+				position: fixed;
+				top: 0;
+				right: 0;
+				width: 3em; height: 3em;
+				display: none;
+				@include justify-content(center);
+				@include align-items(center);
+				i{
+					display: block;
+					font-size: 2.5em;
+					color: white;
+					@include animation(btFecharAparece 0.3s linear 0s 1 normal both);
+
+				}
+			}
+			ul.lista-globais{
 				height: 100%;
-				&:hover{
+
+				& > li{
+					display: inline-block;
+					height: 100%;
+
+
+					&:hover{
+						& > a{
+							color: white;
+							background-color: $grafite;
+						}
+						& > .submenu-global{
+							@include display(flex);
+						}
+					}
 					& > a{
-						color: white;
-						background-color: $grafite;
+						@media screen and (max-width: $tamanho-notebook){
+							font-size: 0.8em;
+						}
+						color: inherit;
+						@include display(flex);
+						@include align-items(center);
+						height: 100%;
+						padding: 0 0.8em;
+						text-transform: uppercase;
+						background-color: white;
+						&:hover{
+							text-decoration: none;
+						}
+						
 					}
 					& > .submenu-global{
-						@include display(flex);
-					}
-				}
-				& > a{
-					color: inherit;
-					@include display(flex);
-					@include align-items(center);
-					height: 100%;
-					padding: 0 0.8em;
-					text-transform: uppercase;
-					background-color: white;
-					&:hover{
-						text-decoration: none;
-					}
-					
-				}
-				.submenu-global{
-					position: absolute;
-					left: 0;
-					top: 100%;
-					width: 100%;
-					display: none;
-					background-color: $grafite;
-					padding: 1em 2em;
-					.categorias{
-						width: 20%;
-						& > li{
-							display: block;
-							margin-bottom: 0.5em;
-							& > a{
+						z-index: 2;
+						position: absolute;
+						left: 0;
+						top: 100%;
+						width: 100%;
+						display: none;
+						background-color: $grafite;
+						padding: 1em 2em;
+						.categorias{
+							width: 20%;
+							& > li{
+								display: block;
+								margin-bottom: 0.5em;
+								& > a{
+									color: white;
+								}
+							}
+						}
+
+						.ultimos-posts{
+							width: 80%;
+							@include display(flex);
+							@include flex-direction(column);
+							@include align-items(flex-end);
+
+							ul.posts{
+								width: 100%;
+								@include display(flex);
+
+								li{
+									width: 25%;
+									margin-right: 1em;
+									&:last-child{
+										margin-right: 0;
+									}
+									a{
+										color: inherit;
+										display: block;
+										background-color: white;
+										width: 100%;
+										padding: 0.75em;
+										.img{
+											width: 100%;
+											height: 120px;
+											position: relative;
+											background-color: grey;
+											img{
+												position: absolute;
+												height: 1px;
+												width: 1px;
+												top: -10000px;
+												left: -10000px;
+											}
+										}
+										p{
+											color: $grafite;
+											font-size: 0.8em;
+											margin-top: 1em;
+											text-align: center;
+										}
+									}
+								}
+							}
+
+							a.ver-mais{
+								margin-top: 1em;
+								font-size: 0.8em;
 								color: white;
 							}
 						}
 					}
+				}
+			}
 
-					.ultimos-posts{
-						width: 80%;
-						@include display(flex);
-						@include flex-direction(column);
-						@include align-items(flex-end);
+			// responsivo
 
-						ul.posts{
-							width: 100%;
-							@include display(flex);
+			@include keyframes(fundoEscurece){
+				0%{background-color: rgba(0,0,0,0);}
+				100%{background-color: rgba(0,0,0,0.7);}
+			}
 
-							li{
-								width: 25%;
-								margin-right: 1em;
-								&:last-child{
-									margin-right: 0;
-								}
-								a{
-									color: inherit;
-									display: block;
-									background-color: white;
-									width: 100%;
-									padding: 0.75em;
-									.img{
-										width: 100%;
-										height: 120px;
-										position: relative;
-										background-color: grey;
-										img{
-											position: absolute;
-											height: 1px;
-											width: 1px;
-											top: -10000px;
-											left: -10000px;
-										}
-									}
-									p{
+			@include keyframes(menuSurge){
+				0%{@include transform(translate(-100%))}
+				100%{@include transform(translate(0%))}
+			}
+
+			@media screen and (max-width: $tamanho-tablet){
+				display: none;
+				position: fixed;
+				height: 100%;
+				width: 100%;
+				background-color: rgba(0,0,0,0.7);
+				@include animation(fundoEscurece 0.3s linear 0s 1 normal both);
+				z-index: 6;
+
+				&.visivel{
+					display: block;
+				}
+
+				button.fecha-menu-retratil{
+					@include display(flex);
+				}
+
+				& > ul.lista-globais{
+					@include animation(menuSurge 0.3s ease-out 0s 1 normal both);
+					@include display(block);
+					width: 360px;
+					max-width: calc(100% - 3em);
+					background-color: white;
+					overflow-y: auto;
+					box-shadow: $boxshadow-padrao;
+
+					& > li{
+						display: block;
+						border-bottom: 1px solid lighten($grafite-claro, 30%);
+						height: auto;
+						position: relative;
+						& > a{
+							@include display(block);
+							height: auto;
+							padding: 0.5em 1em;
+						}
+
+						& > .submenu-global{
+							z-index: 0;
+							position: static;
+							display: block;
+							background-color: transparent;
+							padding: 0em 0 1em 2em;
+							.categorias{
+								width: 100%;
+								& > li{
+									margin-bottom: 0;
+									// &:not(:last-child){
+									// 	margin-bottom: 0em;
+									// }
+									& > a{
+										color: inherit;
 										font-size: 0.8em;
-										text-align: center;
 									}
 								}
 							}
+
+							.ultimos-posts{
+								display: none;
+							}
 						}
 
-						a.mais-posts{
-							margin-top: 1em;
-							font-size: 0.8em;
-							color: white;
+
+						&:hover{
+							& > a{
+								color: inherit;
+								background-color: inherit;
+							}
+
+							& > .submenu-global{
+								@include display(block);
+							}
+
 						}
 					}
 				}
+				
 			}
 		}
 
 		.busca-e-favoritos{
 			position: absolute;
-			right: 0;
+			right: 0px;
 			top: 0;
 			height: 100%;
+			@include display(flex);
+
+			@media screen and (max-width: $tamanho-notebook){
+				font-size: 0.8em;
+			}
 			
 			button.btsearch{
-				@include display(inline-flex);
+				@include display(flex);
 				@include align-items(center);
 				height: 100%;
-				padding: 0 0.4em;
+				padding: 0 0.8em;
 				span{
 					text-transform: uppercase;
 					margin-right: 0.6em;
 				}
 			}
 			a.favoritos{
+				@include display(flex);
+				@include align-items(center);
+				@include justify-content(center);
+
 				height: 100%;
-				padding: 0 0.4em;
+				padding: 0 0.8em;
 				color: inherit;
 			}
 		}
 	}
 
-	ul.subglobal{
-
-		&, &:before{
-			background-color: $grafite;
-		}
+	& > .subglobal{
+		
+		background-color: $grafite;
 		height: 32px;
 		
-		@media screen and (max-width: $tamanho-tablet){
-			overflow-x: auto;
-			white-space: nowrap;
-		}
-
-		li{
+		& > ul{
 			height: 100%;
-			@include display(inline-flex);
-			@include align-items(center);
-			&:not(:last-child){
-				border-right: 1px solid black;
+			@media screen and (max-width: $tamanho-tablet){
+				overflow-x: auto;
+				white-space: nowrap;
 			}
-			&:first-child{
-				a{
-					padding-left: 0;
-				}
-			}
-			a{
 
-				display: block;
-				font-size: 0.85em;
-				color: white;
-				padding: 0 0.7em;
+			li{
+				height: 100%;
+				@include display(inline-flex);
+				@include align-items(center);
+				&:not(:last-child){
+					border-right: 1px solid black;
+				}
+				&:first-child{
+					a{
+						padding-left: 0;
+					}
+				}
+				a{
+
+					display: block;
+					font-size: 0.85em;
+					color: white;
+					padding: 0 0.7em;
+				}
 			}
 		}
 	}

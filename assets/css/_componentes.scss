@@ -1,3 +1,5 @@
+/* BLOG RENTAVEL */
+
 .blog-rentavel{
 	&, &:before{
 		background-color: #FCF3F1;
@@ -57,6 +59,8 @@
 }
 
 
+/* NEWSLETTER */
+
 .newsletter{
 	padding-top: 2em;
 	padding-bottom: 2em;
@@ -82,6 +86,10 @@
 		min-width: 40%;
 		&.v{
 			display: none;
+		}
+
+		& > *, & > * > *{
+			z-index: 0 !important;
 		}
 	}
 
@@ -112,30 +120,174 @@
 }
 
 
+// botao padrao "padrao": Fundo grafite, texto branco.
+.botao-padrao, a.botao-padrao, button.botao-padrao{
+	display: block;
+	font-size: 1.25em;
+	font-family: $fonte-titulo;
+	font-weight: 800;
+	padding: 0.75em 1.75em;
+	text-align: center;
+	text-decoration: none;
+	&:hover{
+		text-decoration: none;
+	}
+	color: white;
+	background-color: $grafite;
+
+	&.menor{
+		font-size: 1em;
+		padding: 0.5em 1.25em;
+	}
+
+	&.grafite{
+		color: white;
+		background-color: $grafite;
+		&.negativo{
+			color: $grafite;
+			background-color: $cinza;
+		}
+	}
+
+	&.vermelho{
+		color: white;
+		background-color: $vermelho;
+		&.negativo{
+			color: $vermelho;
+			background-color: $rosa;
+		}
+	}
+
+	&.verde{
+		color: white;
+		background-color: $verde-escuro;
+		&.negativo{
+			color: $verde-escuro;
+			background-color: $verde-claro;
+		}
+	}
+}
+
+
+
+/* REDES SOCIAIS */
+
+.redes-sociais{
+	a{
+		color: white;
+		width: 2em;
+		height: 2em;
+		border-radius: 50%;
+		@include display(flex);
+		@include align-items(center);
+		@include justify-content(center);
+		&:hover{text-decoration: none};
+		&.facebook{background-color: #3B5998}
+		&.twitter{background-color: #1DA1F2}
+		&.instagram{background-color: #C13584}
+		&.youtube{background-color: #FF0000}
+		&.pinterest{background-color: #E60022}
+		&.rss{background-color: #FF6700}
+		&.whatsapp{background-color: #128C7E}
+		&.email{background-color: #F17285}
+	}
+}
+
+
+/* CARD */
+
 .card{
 	background-color: white;
 	box-shadow: $boxshadow-padrao;
 	padding: 1em;
+	position: relative;
+
+	// estilo geral do emblema estrela
+	img.premium-label{
+		position: absolute;
+		top: 0;
+		right: 1em;
+		height: 2em;
+		width: auto;
+		display: block;
+		& ~ .container-texto h2{
+			padding-right: 2em;
+		}
+	}
+
+	// Quando o card inteiro eh um link, tem que ter essa tag no comeco:
 	a.link-full{
 		position: absolute;
 		top: 0; left: 0;
 		width: 100%; height: 100%;
 		z-index: 2;
 	}
+
+	// Esse container eh tambem o container para os acessorios, como preco e produto estrelinha
 	.container-imagem{
 		background-color: $cinza;
 		width: 100%;
-		height: 0;
+		height: auto;
 		position: relative;
-		padding-bottom: 100%;
+
+		img.premium-label{
+			right: 0.6em;
+		}
+
+		img.main-img{
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	
+
+		p.preco{
+			position: absolute;
+			left: 0; bottom: 0;
+			font-family: $fonte-titulo;
+			font-weight: 800;
+			font-size: .75em;
+			line-height: 1;
+			color: white;
+			background-color: $azul;
+			padding: 0.5em;
+			white-space: nowrap;
+			&.verde{
+				background-color: $verde;
+			}
+
+			&.full-width{
+				width: 100%;
+				text-align: center;
+				text-transform: uppercase;
+			}
+		}
 
 	}
-
+	// Chamei de container texto mas eh o container tbm do botao de "ver mais" e tambem de boomark:;
 	.container-texto{
 		margin-top: 1em;
 		color: $grafite;
-		p{
+
+		
+		h2{
 			font-weight: bold;
+			font-family: $fonte-corpo;
+			font-size: 1em;
+			font-weight: bold;
+		}
+		p{
+			& +{
+				a, .alinhador{
+					margin-top: 1em;
+					position: relative;
+					z-index: 3;
+				}
+			}
+		}
+
+		a.ver-mais{
+			color: $vermelho;
 		}
 		a.bookmark{
 			color: $vermelho;
@@ -143,6 +295,75 @@
 			margin: 0 0 0.5em 0.5em;
 			position: relative;
 			z-index: 3;
+		}
+	}
+
+
+	// Aqui, as versoes diferentes que o card pode ter
+
+	// Sem fundo branco
+	&.transparente{
+		padding: 0;
+		box-shadow: none;
+		background-color: transparent;
+	}
+
+	// Para o card tradicional vertical, o texto pode ser centralizado
+	&.centralizado{
+		.container-texto{
+			h2,p{
+				text-align: center;
+			}
+		}
+	};
+
+	// card horizontalizado
+	&.horizontal{
+		@include display(flex);
+		@include align-items(stretch);
+		.container-imagem{
+			@include flex-shrink(0);
+			width: 50%;
+		}
+
+		.container-texto{
+			margin-top: 0;
+			margin-left: 1em;
+			position: relative;
+			h2{
+				font-size: 1.2em;
+				margin-bottom: 0.5em;
+			}
+
+			p{
+				& +{
+					.alinhador, a{
+						position: absolute;
+						bottom: 0; left: 0;
+					}
+				}
+			}
+		}
+
+
+		// Espelhado
+		&.espelhado{
+			.container-imagem{
+				@include order(2);
+			}
+			.container-texto{
+				margin-left: 0;
+				margin-right: 1em;
+				@include order(1);
+				h2,p, a.ver-mais{
+					text-align: right;
+				}
+
+				a.ver-mais{
+					left: auto;
+					right: 0;
+				}
+			}
 		}
 	}
 

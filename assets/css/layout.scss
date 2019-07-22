@@ -4,12 +4,15 @@ $output-bourbon-deprecation-warnings: false !default;
 @import 'normalize';
 @import 'fontface';
 @import 'fontawesomepro';
+@import 'jquery.bxslider.min';
 @import 'padroes';	
 
 @import 'componentes';
 @import 'cabecalho';
 @import 'home';
+@import 'rodape';
+
 
 body{
-	min-height: 100vh;
+
 }
