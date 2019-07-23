@@ -152,9 +152,18 @@ button{
 
 
 
+// isolador de imagens
+
+.isolador-img{
+	position: absolute;
+	top: -10000px; left: -10000px;
+	width: 100%;
+}
+
+
+
 
 /* CONTAINER PADRAO */
-
 $largura-container: 1180px;
 $largura-container-menor: 800px;
 
@@ -227,8 +236,6 @@ $largura-container-menor: 800px;
 
 
 /* RESETS */
-
-
 .bx-wrapper{
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;

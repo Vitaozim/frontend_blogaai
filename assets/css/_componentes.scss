@@ -328,14 +328,14 @@
 	// estilo geral do emblema estrela
 	img.premium-label{
 		position: absolute;
-		top: 0;
-		right: 1em;
+		top: 1em;
+		right: 2em;
 		height: 2em;
 		width: auto;
-		display: none;
-		& ~ .container-texto h2{
-			padding-right: 2em;
-		}
+		z-index: 2;
+		// & ~ .container-texto h2{
+		// 	padding-right: 2em;
+		// }
 	}
 
 	// Quando o card inteiro eh um link, tem que ter essa tag no comeco:
@@ -343,7 +343,7 @@
 		position: absolute;
 		top: 0; left: 0;
 		width: 100%; height: 100%;
-		z-index: 2;
+		z-index: 3;
 
 		& ~ .container-texto{
 			padding-bottom: 0;
@@ -352,45 +352,46 @@
 
 	// Esse container eh tambem o container para os acessorios, como preco e produto estrelinha
 	.container-imagem{
-		background-color: $cinza;
 		width: 100%;
 		height: auto;
 		position: relative;
 
-		img.premium-label{
-			display: block;
-			right: 0.6em;
-		}
-
-		img.main-img{
-			display: block;
+		.img-em-bg{
 			width: 100%;
-			height: auto;
-		}
-	
-
-		p.preco{
-			position: absolute;
-			left: 0; bottom: 0;
-			font-family: $fonte-titulo;
-			font-weight: 800;
-			font-size: .75em;
-			line-height: 1;
-			color: white;
-			background-color: $azul;
-			padding: 0.5em;
-			white-space: nowrap;
-			&.verde{
-				background-color: $verde;
+			height: 0; 
+			padding-bottom: 70%;
+			position: relative;
+			display: block;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: cover;
+			overflow: hidden;
+			img.main-img{
+				@extend .isolador-img;
 			}
 
-			&.full-width{
-				width: 100%;
-				text-align: center;
-				text-transform: uppercase;
+			p.preco{
+				position: absolute;
+				left: 0; bottom: 0;
+				font-family: $fonte-titulo;
+				font-weight: 800;
+				font-size: .75em;
+				line-height: 1;
+				color: white;
+				background-color: $azul;
+				padding: 0.5em;
+				white-space: nowrap;
+				&.verde{
+					background-color: $verde;
+				}
+
+				&.full-width{
+					width: 100%;
+					text-align: center;
+					text-transform: uppercase;
+				}
 			}
 		}
-
 	}
 	// Chamei de container texto mas eh o container tbm do botao de "ver mais" e tambem de boomark:;
 	.container-texto{
@@ -398,16 +399,18 @@
 		padding-bottom: 2em;
 		color: $grafite;
 
-		
-		h2{
-			font-weight: bold;
-			font-family: $fonte-corpo;
-			font-size: 1em;
-			font-weight: bold;
+		.titulo-e-txt{
+			h2{
+				font-weight: bold;
+				font-family: $fonte-corpo;
+				font-size: 1em;
+				font-weight: bold;
+			}
+			p{
+				
+			}
 		}
-		p{
-			
-		}
+
 
 		.alinhador{
 			margin-top: 2em;
@@ -426,7 +429,7 @@
 			float: right;
 			margin: 0 0 0.5em 0.5em;
 			position: relative;
-			z-index: 3;
+			z-index: 4;
 		}
 	}
 
@@ -438,6 +441,17 @@
 		padding: 0;
 		box-shadow: none;
 		background-color: transparent;
+		img.premium-label{
+			top: 0;
+			right: 1em;
+		}
+
+		.container-texto{
+			.alinhador, a.ver-mais{
+				bottom: 0;
+				left: 0;
+			}
+		}
 	}
 
 	// Para o card tradicional vertical, o texto pode ser centralizado
@@ -449,41 +463,64 @@
 		}
 	};
 
+
+	// para cards que sao links
+	&.link{
+		@include transition(all 0.2s ease-in-out);
+		@include  transition-property(transform, box-shadow);
+		&:hover{
+			@include transform(translateY(-10px));
+			box-shadow: 0px 10px 15px 0 rgba(0,0,0,0.12);
+		}
+	}
+
 	// card horizontalizado
 
-	@media screen and (min-width: $tamanho-tablet){
+	@media screen and (min-width: $tamanho-smart-pequeno){
 		&.horizontal{
 			@include display(flex);
 			@include align-items(stretch);
 			img.premium-label{
-				display: block;
+				top: 0;
+				right: 1em;
+				& ~ .container-texto{
+					.titulo-e-txt{
+						h2{
+							padding-right: 2em;
+						}
+					}
+				}
 			}
 
 			.container-imagem{
 				@include flex-shrink(0);
 				width: 50%;
-				img.premium-label{
-					display: none;
-				}
 
+				.img-em-bg{
+					padding-bottom: 100%;
+				}
 			}
 
 			.container-texto{
 				margin-top: 0;
 				margin-left: 1em;
 				position: relative;
+				padding-bottom: 0;
+				@include display(flex);
+				@include flex-direction(column);
+				@include justify-content(space-between);
 				h2{
 					font-size: 1.2em;
 					margin-bottom: 0.5em;
 				}
 
 				p{
-					& +{
-						.alinhador, a{
-							position: absolute;
-							bottom: 0; left: 0;
-						}
-					}
+					
+				}
+
+				.alinhador, a.ver-mais{
+					position: static;
+					margin-top: 0;
 				}
 			}
 
