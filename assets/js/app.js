@@ -20,13 +20,11 @@ jQuery(document).ready(function($) {
 	var widthJanela = $(window).width();
 
 	var nSlidesDicas = 2;
-	if (widthJanela < 1000) {nSlidesDicas = 3}
-	if (widthJanela < 840) {nSlidesDicas = 2}
-	if (widthJanela < 400) {nSlidesDicas = 1}
+	if (widthJanela < 840) {nSlidesDicas = 1}
 
 
 	var $slider_dicas = $("section.dicas-para-blogs .slider-dicas");
-	$slider_dicas.bxSlider({
+	if ($slider_dicas.length > 0) $slider_dicas.bxSlider({
 		touchEnabled: false,
 		controls: false,
 		slideSelector: $('.item-dica'),
@@ -44,7 +42,7 @@ jQuery(document).ready(function($) {
 	if (widthJanela < 400) {nSlidesMarcas = 2}
 
 	var $slider_logos_midias = $("section.na-midia ul");
-	$slider_logos_midias.bxSlider({
+	if ($slider_logos_midias.length > 0) $slider_logos_midias.bxSlider({
 		auto: true,
 		pause: 2000,
 		autoStart: true,
