@@ -96,9 +96,11 @@
 			}
 			ul.lista-globais{
 				height: 100%;
+				@include display(flex);
+
 
 				& > li{
-					display: inline-block;
+					// display: inline-block;
 					height: 100%;
 
 
@@ -122,6 +124,8 @@
 						padding: 0 0.8em;
 						text-transform: uppercase;
 						background-color: white;
+						@include transition(all 0.1s linear);
+						@include transition-property(background-color, color);
 						&:hover{
 							text-decoration: none;
 						}
@@ -140,7 +144,13 @@
 							width: 20%;
 							& > li{
 								display: block;
-								margin-bottom: 0.5em;
+								margin-bottom: 0.4em;
+								@include animation(aparece 0.2s linear 0s 1 normal both);
+								@for $i from 1 through 20 {
+									&:nth-child(#{$i}) {
+										@include animation-delay(#{$i * 0.05}s);
+									}
+								}
 								& > a{
 									color: white;
 								}
@@ -159,12 +169,21 @@
 
 								li{
 									width: 25%;
-									margin-right: 1em;
-									&:last-child{
-										margin-right: 0;
+									&:not(:last-child){margin-right: 1em;}
+									@include animation(aparece 0.4s linear 0s 1 normal both);
+									@for $i from 1 through 20 {
+										&:nth-child(#{$i}) {
+											@include animation-delay(#{$i * 0.1}s);
+										}
 									}
 									a{
 										color: inherit;
+										&:hover{
+											text-decoration: none;
+											p{
+												color: $vermelho;
+											}
+										}
 										display: block;
 										background-color: white;
 										width: 100%;
@@ -183,6 +202,7 @@
 											}
 										}
 										p{
+											@include transition(color 0.2s linear);
 											color: $grafite;
 											font-size: 0.9em;
 											margin-top: 1em;
@@ -334,6 +354,7 @@
 		
 		& > ul{
 			height: 100%;
+			@include display(flex);
 			@media screen and (max-width: $tamanho-tablet){
 				overflow-x: auto;
 				white-space: nowrap;
@@ -341,8 +362,9 @@
 
 			li{
 				height: 100%;
-				@include display(inline-flex);
-				@include align-items(center);
+				// @include display(inline-flex);
+				// @include align-items(center);
+				// display: inline-block;
 				&:not(:last-child){
 					border-right: 1px solid black;
 				}
@@ -352,11 +374,18 @@
 					}
 				}
 				a{
-
-					display: block;
+					height: 100%;
+					// background-color: $grafite;
+					// @include transition(background-color 0.1s linear);
+					@include display(flex);
+					@include align-items(center);
 					font-size: 0.85em;
 					color: white;
 					padding: 0 0.7em;
+					// &:hover{
+					// 	text-decoration: none;
+					// 	background-color: darken($grafite, 20%);
+					// }
 				}
 			}
 		}

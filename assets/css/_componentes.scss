@@ -213,6 +213,13 @@
 }
 
 
+// keyframe animacao opacidade
+@include keyframes(aparece){
+	0%  {opacity: 0;}
+	100%{opacity: 1;}
+}
+
+
 // botao padrao "padrao": Fundo grafite, texto branco.
 .botao-padrao, a.botao-padrao, button.botao-padrao{
 	display: block;
@@ -222,11 +229,14 @@
 	padding: 0.75em 1.75em;
 	text-align: center;
 	text-decoration: none;
-	&:hover{
-		text-decoration: none;
-	}
 	color: white;
 	background-color: $grafite;
+	@include transition(all 0.2s linear);
+	@include transition-property(background-color, color);
+	&:hover{
+		text-decoration: none;
+		background-color: darken($grafite, 20%);
+	}
 
 	&.menor{
 		font-size: 1em;
@@ -236,27 +246,47 @@
 	&.grafite{
 		color: white;
 		background-color: $grafite;
+		&:hover{
+			background-color: darken($grafite, 20%);
+		}
 		&.negativo{
 			color: $grafite;
 			background-color: $cinza;
+			&:hover{
+				background-color: darken($cinza, 20%);
+			}
 		}
 	}
 
 	&.vermelho{
 		color: white;
 		background-color: $vermelho;
+		&:hover{
+			background-color: darken($vermelho, 20%);
+		}
 		&.negativo{
 			color: $vermelho;
 			background-color: $rosa;
+			&:hover{
+				color: white;
+				background-color: darken($rosa, 20%);
+			}
 		}
 	}
 
 	&.verde{
 		color: white;
 		background-color: $verde-escuro;
+		&:hover{
+			background-color: darken($verde-escuro, 20%);
+		}
 		&.negativo{
 			color: $verde-escuro;
 			background-color: $verde-claro;
+			&:hover{
+				color: white;
+				background-color: darken($verde-claro, 20%);
+			}
 		}
 	}
 }
@@ -302,7 +332,7 @@
 		right: 1em;
 		height: 2em;
 		width: auto;
-		display: block;
+		display: none;
 		& ~ .container-texto h2{
 			padding-right: 2em;
 		}
@@ -314,6 +344,10 @@
 		top: 0; left: 0;
 		width: 100%; height: 100%;
 		z-index: 2;
+
+		& ~ .container-texto{
+			padding-bottom: 0;
+		}
 	}
 
 	// Esse container eh tambem o container para os acessorios, como preco e produto estrelinha
@@ -324,6 +358,7 @@
 		position: relative;
 
 		img.premium-label{
+			display: block;
 			right: 0.6em;
 		}
 
@@ -360,6 +395,7 @@
 	// Chamei de container texto mas eh o container tbm do botao de "ver mais" e tambem de boomark:;
 	.container-texto{
 		margin-top: 1em;
+		padding-bottom: 2em;
 		color: $grafite;
 
 		
@@ -370,16 +406,19 @@
 			font-weight: bold;
 		}
 		p{
-			& +{
-				a, .alinhador{
-					margin-top: 1em;
-					position: relative;
-					z-index: 3;
-				}
-			}
+			
+		}
+
+		.alinhador{
+			margin-top: 2em;
 		}
 
 		a.ver-mais{
+			bottom: 1em;
+			left: 1em;
+			position: absolute;
+			display: block;
+			// margin-top: 2em;
 			color: $vermelho;
 		}
 		a.bookmark{
@@ -416,9 +455,17 @@
 		&.horizontal{
 			@include display(flex);
 			@include align-items(stretch);
+			img.premium-label{
+				display: block;
+			}
+
 			.container-imagem{
 				@include flex-shrink(0);
 				width: 50%;
+				img.premium-label{
+					display: none;
+				}
+
 			}
 
 			.container-texto{

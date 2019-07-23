@@ -7,6 +7,8 @@
 		padding-bottom: 2em;
 		@include display(flex);
 		@include justify-content(space-between);
+
+
 		& > div{
 			width: calc(33.33333% - 1.33333em);
 			& > h2{
@@ -21,12 +23,29 @@
 			}
 		}
 
+		@media screen and (max-width: $tamanho-tablet-vertical){
+			@include display(block);
+			& > div{
+				width: 100%;
+				max-width: 400px;
+				margin: 0 auto 3em;
+				& > h2{
+					margin-bottom: 0.3em;
+				}
+			}
+		}
+
 		.perfil{
+			&:after{
+				content: "";
+				display: table;
+				clear: both;
+			}
 			.foto-perfil{
 				float: left;
 				width: 40%;
 				height: auto;
-				margin: 0 0.5em 0.5em 0;
+				margin-right: 0.5em;
 			}
 
 			h3,p{
@@ -49,6 +68,20 @@
 				li{
 					width: calc(25% - .375em);
 					margin-bottom: 0.5em;
+
+					@media screen and (max-width: $tamanho-tablet){
+						width: calc(33.333333% - .333333em);
+						&:nth-last-child(-n+2){
+							display: none;
+						}
+					}
+					@media screen and (max-width: $tamanho-tablet-vertical){
+						width: calc(25% - .375em);
+						&:nth-last-child(-n+2){
+							display: block;
+						}
+					}
+
 					a{
 						display: block;
 						width: 100%;
@@ -65,7 +98,14 @@
 
 		.links-importantes{
 			ul.os-links{
-				column-count: 3;
+				column-count: 1;
+				&.colunas-2{
+					column-count: 2;
+				}
+
+				&.colunas-3{
+					column-count: 3;
+				}
 				column-gap: 1em;
 				margin-bottom: 1em;
 				a{
@@ -119,6 +159,11 @@
 		padding-bottom: 1em;
 		@include display(flex);
 		@include justify-content(space-between);
+
+		@media screen and (max-width: $tamanho-smart-pequeno){
+			@include display(block);
+		}
+
 		&, &:before{
 			background-color: $grafite;
 		}
@@ -129,6 +174,12 @@
 				font-weight: bold;
 				color: inherit;
 			}
+			@media screen and (max-width: $tamanho-smart-pequeno){
+				line-height: inherit;
+				text-align: center;
+				width: 100%;
+			}
+
 		}
 	}
 }
