@@ -343,18 +343,20 @@
 
 	.conteudo{
 		@include display(flex);
+		@include align-items(center);
 		
 		.ilustra-ilustrativa{
-			width: 50%;
-			background-image: url(../media/ilustra2.svg);
-			background-size: 95% auto;
-			background-position: top center;
-			background-repeat: no-repeat;
+			width: 45%;
+			img{
+				display: block;
+				width: 100%;
+				height: auto;
+			}
 		}
 		.card{
-			width: 50%;
+			width: 55%;
 			.container-imagem{
-				width: 33%;
+				width: 35%;
 				.img-em-bg{
 					padding-bottom: 150%;
 				}

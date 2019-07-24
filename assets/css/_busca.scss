@@ -1,0 +1,69 @@
+#busca{
+	@include animation(aparece 0.2s linear 0s 1 normal both);
+	position: fixed;
+	top: 0; left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.9);
+	display: none;
+	@include justify-content(center);
+	@include align-items(center);
+	padding: 0 15px;
+	z-index: 10;
+	&.visivel{
+		@include display(flex);
+	}
+	button.bt-fechar{
+
+	}
+	form{
+		width: 550px;
+		max-width: 100%;
+		@include display(flex);
+		@include justify-content(space-between);
+
+		.input-texto{
+			position: relative;
+			width: 100%;
+			margin-right: .5em;
+			font-size: 1.5em;
+			font-family: $fonte-corpo;
+
+			input.termos-busca{
+				width: 100%;
+				padding: 0.25em;
+				color: white;
+				background-color: transparent;
+				border: none;
+				border-bottom: 2px solid;
+				position: relative;
+				z-index: 1;
+				&:focus{
+					outline: none;
+					& + p.placeholder-fake{
+						bottom: 100%;
+						font-size: 0.6em;
+					}
+				}
+			}
+			p.placeholder-fake{
+				pointer-events: none;
+				bottom: 0;
+				color: grey;
+				position: absolute;
+				@include transition(all 0.2s ease-in-out);
+				@include transition-property(font-size, bottom);
+
+			}
+		}
+		
+		button.buscar{
+			padding: 0.25em;
+			@include flex-shrink(0);
+			font-size: 1.5em;
+			color: white;
+			background-color: transparent;
+			border: none;
+		}
+	}
+}

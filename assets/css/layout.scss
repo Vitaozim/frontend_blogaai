@@ -5,12 +5,14 @@ $output-bourbon-deprecation-warnings: false !default;
 @import 'fontface';
 @import 'fontawesomepro';
 @import 'jquery.bxslider.min';
+@import 'jquery.fancybox.min';
 @import 'padroes';	
 
 @import 'componentes';
 @import 'cabecalho';
 @import 'home';
 @import 'rodape';
+@import 'busca';
 
 
 body{

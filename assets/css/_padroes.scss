@@ -67,6 +67,12 @@ $tamanho-gigante: 1600px;
 	}
 }
 
+html,body{
+	&.noscroll{
+		overflow: hidden;
+	}
+}
+
 body{
 	overflow-x: hidden;
 }

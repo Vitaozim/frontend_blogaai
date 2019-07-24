@@ -1,6 +1,11 @@
 #header{
-	position: relative;
-	z-index: 4;
+	width: 100%;
+	position: fixed;
+	z-index: 5;
+
+	& + *{
+		margin-top: 86px;
+	}
 
 	.container-menu{
 		display: block;
@@ -79,20 +84,9 @@
 			}
 
 			button.fecha-menu-retratil{
-				position: fixed;
-				top: 0;
-				right: 0;
-				width: 3em; height: 3em;
-				display: none;
-				@include justify-content(center);
-				@include align-items(center);
-				i{
-					display: block;
-					font-size: 2.5em;
-					color: white;
-					@include animation(btFecharAparece 0.3s linear 0s 1 normal both);
+				@extend .bt-fechar;
+				@include display(none);
 
-				}
 			}
 			ul.lista-globais{
 				height: 100%;
@@ -116,6 +110,9 @@
 					& > a{
 						@media screen and (max-width: $tamanho-notebook){
 							font-size: 0.9em;
+						}
+						@media screen and (max-width: $tamanho-tablet){
+							font-size: 1em;
 						}
 						color: inherit;
 						@include display(flex);
@@ -221,7 +218,7 @@
 
 			@include keyframes(fundoEscurece){
 				0%{background-color: rgba(0,0,0,0);}
-				100%{background-color: rgba(0,0,0,0.7);}
+				100%{background-color: rgba(0,0,0,0.9);}
 			}
 
 			@include keyframes(menuSurge){
@@ -234,7 +231,7 @@
 				position: fixed;
 				height: 100%;
 				width: 100%;
-				background-color: rgba(0,0,0,0.7);
+				background-color: rgba(0,0,0,0.9);
 				@include animation(fundoEscurece 0.3s linear 0s 1 normal both);
 				z-index: 6;
 
@@ -250,7 +247,7 @@
 					@include animation(menuSurge 0.3s ease-out 0s 1 normal both);
 					@include display(block);
 					width: 360px;
-					max-width: calc(100% - 3em);
+					max-width: calc(100% - 5em);
 					background-color: white;
 					overflow-y: auto;
 					box-shadow: $boxshadow-padrao;
@@ -320,6 +317,10 @@
 
 			@media screen and (max-width: $tamanho-notebook){
 				font-size: 0.9em;
+			}
+
+			@media screen and (max-width: $tamanho-tablet){
+				font-size: 1em;
 			}
 
 			button.btsearch, a.favoritos{

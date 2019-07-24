@@ -117,7 +117,7 @@
 		            
 		            
 		            <div class="busca-e-favoritos">
-		                <button class="btsearch">
+		                <button class="btsearch" id="btbusca">
 		                    <span>buscar</span>
 		                    <i class="far fa-search"></i>
 		                </button>
@@ -590,7 +590,9 @@
         <section class="cursos-treinamentos container">
         	<h1>cursos e treinamentos</h1>
         	<div class="conteudo">
-        		<div class="ilustra-ilustrativa"></div>
+        		<div class="ilustra-ilustrativa">
+                    <img src="assets/media/ilustra2.svg" alt="">      
+                </div>
         		<div class="card horizontal espelhado transparente">
 
                     <div class="container-imagem">
@@ -777,12 +779,26 @@
 			
 		</footer>
 
+        <div id="busca">
+            <button class="bt-fechar">
+                <i class="fal fa-times"></i>        
+            </button>
+            <form action="home.html">
+                <div class="input-texto">
+                    <input type="text" name="termosbusca" class="termos-busca" data-placeholder="digite sua busca aqui">
+                    <p class="placeholder-fake">digite sua busca aqui</p>
+                </div>
+                <button class="buscar"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+
 
         <script
           src="https://code.jquery.com/jquery-3.4.1.min.js"
           integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
           crossorigin="anonymous"></script>
           <script src="assets/js/jquery.bxslider.min.js"></script>
+          <script src="assets/js/jquery.fancybox.min.js"></script>
           <script src="assets/js/app.js"></script>
     </body>
 </html>

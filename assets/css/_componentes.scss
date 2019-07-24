@@ -107,6 +107,7 @@
 		background-color: $cinza;
 	}
 	@include display(flex);
+	@include align-items(center);
 	.call2action{
 		padding-right: 3em;
 		h1{
@@ -217,6 +218,25 @@
 @include keyframes(aparece){
 	0%  {opacity: 0;}
 	100%{opacity: 1;}
+}
+
+
+// botao fechar overlays
+
+.bt-fechar{
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 3em; height: 3em;
+	@include display(flex);	
+	@include justify-content(center);
+	@include align-items(center);
+	i{
+		display: block;
+		font-size: 2.5em;
+		color: white;
+		@include animation(btFecharAparece 0.3s linear 0s 1 normal both);
+	}
 }
 
 

@@ -1,19 +1,34 @@
 jQuery(document).ready(function($) {
 
 	// menu global
-
 	var $btmenuretratil = $("#header button.btmenuglobal");
 	var $menuretratil = $("#header .itens-globais");
 	var $btfecharetratil = $menuretratil.find("button.fecha-menu-retratil");
 
 	$btmenuretratil.on('click', function(event) {
 		$menuretratil.addClass('visivel');
+		$('html, body').addClass('noscroll');
 	});
 
 	$btfecharetratil.on('click', function(event) {
 		$menuretratil.removeClass('visivel');
+		$('html, body').removeClass('noscroll');
 	});
 
+
+	// busca
+	var $btbusca = $("#btbusca");
+	var $areabusca = $("#busca");
+
+	$btbusca.on('click', function(event) {
+		$areabusca.addClass('visivel');
+		$('html, body').addClass('noscroll');
+	});
+
+	$areabusca.find("button.bt-fechar").on('click', function(event) {
+		$areabusca.removeClass('visivel');
+		$('html, body').removeClass('noscroll');
+	});
 
 	// bxSlider
 
@@ -64,7 +79,7 @@ jQuery(document).ready(function($) {
 			auto: true,
 			pause: 2000,
 			autoStart: true,
-			touchEnabled: false,
+			touchEnabled: true,
 			pager: false,
 			controls: false,
 			slideWidth: 200,
