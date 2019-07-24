@@ -424,13 +424,35 @@
 			// margin-top: 2em;
 			color: $vermelho;
 		}
-		a.bookmark{
-			color: $vermelho;
+		span.wpfp-span{
 			float: right;
-			margin: 0 0 0.5em 0.5em;
+			// margin: 0 0 0.5em 0.5em;
 			position: relative;
 			z-index: 4;
+			a{
+				color: $vermelho;
+				padding: 0 0 .5em .5em;
+				i{
+					&:nth-child(2){
+						display: none;
+					}
+				}
+
+				&:hover{
+					i{
+						&:nth-child(1){
+							display: none;
+						}
+
+						&:nth-child(2){
+							display: inline;
+						}
+					}
+				}
+			}
+
 		}
+		
 	}
 
 

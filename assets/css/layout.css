@@ -7534,12 +7534,19 @@ button {
       position: absolute;
       display: block;
       color: #FB1200; }
-    .card .container-texto a.bookmark {
-      color: #FB1200;
+    .card .container-texto span.wpfp-span {
       float: right;
-      margin: 0 0 0.5em 0.5em;
       position: relative;
       z-index: 4; }
+      .card .container-texto span.wpfp-span a {
+        color: #FB1200;
+        padding: 0 0 .5em .5em; }
+        .card .container-texto span.wpfp-span a i:nth-child(2) {
+          display: none; }
+        .card .container-texto span.wpfp-span a:hover i:nth-child(1) {
+          display: none; }
+        .card .container-texto span.wpfp-span a:hover i:nth-child(2) {
+          display: inline; }
   .card.transparente {
     padding: 0;
     box-shadow: none;
