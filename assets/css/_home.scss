@@ -253,6 +253,7 @@
 .dicas-para-blogs{
 	padding-top: 2em;
 	padding-bottom: 2em;
+	position: relative;
 	@media screen and (max-width: $tamanho-tablet-vertical){
 		@include display(flex);
 		@include flex-direction(column);
@@ -267,7 +268,32 @@
 		margin-bottom: 1em;
 	}
 
+	button{
+		width: 2em;
+		height: 2em;
+		font-size: 1em;
+		background-color: $grafite-claro;
+		display: none;
+		position: absolute;
+		top: 50%;
+		@include transform(translateY(-50%));
+		&.bt-prev{
+			left: 0px;
+		}
+		&.bt-next{
+			right: 0px;
+		}
+		@media screen and (max-width: $tamanho-tablet-vertical){
+			display: block;
+		}
+
+		i{
+			color: white;
+		}
+	}
+
 	.slider-dicas{
+
 		@media screen and (max-width: $tamanho-tablet-vertical){
 			width: 550px;
 		}
@@ -275,7 +301,7 @@
 		@media screen and (max-width: $tamanho-smartphone){
 			width: 100%;
 		}
-
+		
 		.item-dica{
 			padding: 12px;
 		}
@@ -287,7 +313,7 @@
 				}
 			}
 
-			@media screen and (max-width: $tamanho-smartphone){
+			@media screen and (max-width: $tamanho-smart-pequeno){
 				.container-imagem{
 					width: 100%;
 				}

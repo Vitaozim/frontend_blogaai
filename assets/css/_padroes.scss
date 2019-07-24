@@ -235,11 +235,29 @@ $largura-container-menor: 800px;
 
 
 
-/* RESETS */
+/* BXSLIDER */
 .bx-wrapper{
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 	border: none;
 	margin-bottom: 3em;
+	.bx-pager.bx-default-pager{
+		a{
+			width: 10px;
+			height: 10px;
+			border-radius: 5px;
+			margin: 0 5px;
+			background: #DDD;
+			@include transition(all 0.2s linear);
+			@include transition-property(background,width);
+			&:hover, &:focus{
+				background: #AAA;				
+			}
+			&.active{
+				background: #DDD;
+				width: 30px;
+			}
+		}
+	}
 }

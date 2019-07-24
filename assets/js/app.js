@@ -20,21 +20,33 @@ jQuery(document).ready(function($) {
 	var widthJanela = $(window).width();
 
 	var nSlidesDicas = 2;
-	if (widthJanela < 840) {nSlidesDicas = 1}
+	if (widthJanela < 840) {
+		nSlidesDicas = 1;
+	}
 
 
 	var $slider_dicas = $("section.dicas-para-blogs .slider-dicas");
 	if ($slider_dicas.length > 0){
-		 $slider_dicas.bxSlider({
+		var bxDicas = $slider_dicas.bxSlider({
 			touchEnabled: false,
 			controls: false,
-			slideSelector: $('.item-dica'),
+			slideSelector: $slider_dicas.find('.item-dica'),
 			slideWidth: 1000,
 			slideMargin: 0,
 			minSlides: nSlidesDicas,
 			maxSlides: nSlidesDicas,
 			moveSlides: 1,
 		});
+
+	var $btControlDicas = $("section.dicas-para-blogs button");
+	$btControlDicas.on('click', function(event) {
+		if ($(this).is(".bt-prev")) {
+			bxDicas.goToPrevSlide();
+		}
+		else if ($(this).is(".bt-next")) {
+			bxDicas.goToNextSlide();
+		}
+	});
 	} else{
 		console.log("não existe o elemento html do slide de dicas, portanto o slider não gerado.")
 	}
