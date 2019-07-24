@@ -5,6 +5,17 @@ jQuery(document).ready(function($) {
 	var $menuretratil = $("#header .itens-globais");
 	var $btfecharetratil = $menuretratil.find("button.fecha-menu-retratil");
 
+	$menuretratil
+	.on('click', function(event) {
+		$menuretratil.removeClass('visivel');
+		$('html, body').removeClass('noscroll');
+	})
+	.find('.lista-globais')
+	.on('click', function(event) {
+		console.log($(this));
+		event.stopPropagation();
+	});;
+
 	$btmenuretratil.on('click', function(event) {
 		$menuretratil.addClass('visivel');
 		$('html, body').addClass('noscroll');
@@ -25,9 +36,14 @@ jQuery(document).ready(function($) {
 		$('html, body').addClass('noscroll');
 	});
 
-	$areabusca.find("button.bt-fechar").on('click', function(event) {
+	$areabusca
+	.on('click', function(event) {
 		$areabusca.removeClass('visivel');
 		$('html, body').removeClass('noscroll');
+	})
+	.find("form")
+	.on('click', function(event) {
+		event.stopPropagation();
 	});
 
 	// bxSlider

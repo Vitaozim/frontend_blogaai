@@ -8182,25 +8182,50 @@ button {
   -ms-justify-content: center;
   -o-justify-content: center;
   justify-content: center;
-  -ms-flex-pack: center; }
-  .redes-sociais a:hover {
-    text-decoration: none; }
+  -ms-flex-pack: center;
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  -webkit-transition-property: background-color, color, box-shadow;
+  -moz-transition-property: background-color, color, box-shadow;
+  transition-property: background-color, color, box-shadow;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.6); }
   .redes-sociais a.facebook {
     background-color: #3B5998; }
+    .redes-sociais a.facebook:hover {
+      color: #3B5998; }
   .redes-sociais a.twitter {
     background-color: #1DA1F2; }
+    .redes-sociais a.twitter:hover {
+      color: #1DA1F2; }
   .redes-sociais a.instagram {
     background-color: #C13584; }
+    .redes-sociais a.instagram:hover {
+      color: #C13584; }
   .redes-sociais a.youtube {
     background-color: #FF0000; }
+    .redes-sociais a.youtube:hover {
+      color: #FF0000; }
   .redes-sociais a.pinterest {
     background-color: #E60022; }
+    .redes-sociais a.pinterest:hover {
+      color: #E60022; }
   .redes-sociais a.rss {
     background-color: #FF6700; }
+    .redes-sociais a.rss:hover {
+      color: #FF6700; }
   .redes-sociais a.whatsapp {
     background-color: #128C7E; }
+    .redes-sociais a.whatsapp:hover {
+      color: #128C7E; }
   .redes-sociais a.email {
     background-color: #F17285; }
+    .redes-sociais a.email:hover {
+      color: #F17285; }
+  .redes-sociais a:hover {
+    text-decoration: none;
+    background-color: white;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.6); }
 
 /* CARD */
 .card {
@@ -8906,7 +8931,8 @@ button {
             max-width: calc(100% - 5em);
             background-color: white;
             overflow-y: auto;
-            box-shadow: 0px 0px 12px 0 rgba(0, 0, 0, 0.12); }
+            box-shadow: 0px 0px 12px 0 rgba(0, 0, 0, 0.12);
+            font-size: 1.2em; }
             #header > .global .itens-globais > ul.lista-globais > li {
               display: block;
               border-bottom: 1px solid #c4c4c4;
