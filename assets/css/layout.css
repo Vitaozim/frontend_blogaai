@@ -8424,6 +8424,8 @@ button {
   z-index: 5; }
   #header + * {
     margin-top: 86px; }
+  body.page-template-pagina-inicial #header + * {
+    margin-top: 54px; }
   #header .container-menu {
     display: block;
     margin: 0 auto;

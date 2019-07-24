@@ -7,6 +7,10 @@
 		margin-top: 86px;
 	}
 
+	body.page-template-pagina-inicial & + *{
+		margin-top: 54px;
+	}
+
 	.container-menu{
 		display: block;
 		margin: 0 auto;
