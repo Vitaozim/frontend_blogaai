@@ -47,7 +47,6 @@ jQuery(document).ready(function($) {
 	});
 
 	// bxSlider
-
 	var widthJanela = $(window).width();
 
 	var nSlidesDicas = 2;
@@ -108,4 +107,46 @@ jQuery(document).ready(function($) {
 		console.log("não existe o elemento html do slide de logos, portanto o slider não gerado.")
 	}
 
+	var $janela = $(window);
+	
+	// redes sociais post
+	var $redes_sociais_post = $("#redes-sociais-post");
+
+	if ($redes_sociais_post.length > 0) {
+		var scrollAtual = $janela.scrollTop();
+		var $areapost = $("#post");
+		var $header = $("#header");
+		var posicoesFixacao = {};
+		var definirPosicoesFixacao = function(){
+			posicoesFixacao = {
+				iniciaFixo : $areapost.offset().top - $header.height(),
+				encerraFixo : $areapost.offset().top - $header.height() + $areapost.height() - $redes_sociais_post.height(),
+				topRedes : $areapost.height() - $redes_sociais_post.height()
+			}
+		}
+
+		$janela.on('resize', definirPosicoesFixacao);
+
+		definirPosicoesFixacao();
+		$janela
+		.on('scroll', function(event) {
+			if ($(this).scrollTop() < posicoesFixacao.iniciaFixo) {
+				$redes_sociais_post.removeClass('fixado').css('top', '');
+			}
+
+			else if($(this).scrollTop() > posicoesFixacao.encerraFixo){
+				$redes_sociais_post.removeClass('fixado').css('top', posicoesFixacao.topRedes+"px");
+			}
+
+			else{
+				$redes_sociais_post.addClass('fixado').css('top', ($header.height())+"px");
+			}
+		})
+		.trigger("scroll");
+	}
+
 });
+
+
+
+

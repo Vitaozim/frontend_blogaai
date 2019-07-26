@@ -13,9 +13,6 @@ $output-bourbon-deprecation-warnings: false !default;
 @import 'home';
 @import 'rodape';
 @import 'busca';
+@import 'post';
 
-
-body{
-	
-
-}
+@import 'alteracoes';

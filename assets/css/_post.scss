@@ -1,0 +1,18 @@
+main{
+	position: relative;
+
+	& > #redes-sociais-post{
+		position: absolute;
+		z-index: 2;
+		top: 0;
+		padding-top: 2em;
+		left: calc(50% - (#{$largura-container} + #{$largura-container-menor} ) / 4 - 1em);
+		li{
+			margin-bottom: 0.8em;
+		}
+
+		&.fixado{
+			position: fixed;
+		}
+	}
+}

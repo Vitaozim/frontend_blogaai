@@ -7860,7 +7860,7 @@ button {
   display: flex;
   /* versao compacta */ }
   .blog-rentavel, .blog-rentavel:before {
-    background-color: #FCF3F1; }
+    background-color: #FFF6F6; }
   .blog-rentavel .msg {
     padding: 8em 0 5em;
     padding-right: 2em;
@@ -9571,7 +9571,7 @@ button {
   justify-content: space-between;
   -ms-flex-pack: justify; }
   #footer .outros, #footer .outros:before {
-    background-color: #FCF3F1; }
+    background-color: #FFF6F6; }
   #footer .outros > div {
     width: calc(33.33333% - 1.33333em); }
     #footer .outros > div > h2 {
@@ -9861,5 +9861,18 @@ button {
       color: white;
       background-color: transparent;
       border: none; }
+
+main {
+  position: relative; }
+  main > #redes-sociais-post {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    padding-top: 2em;
+    left: calc(50% - (1180px + 800px ) / 4 - 1em); }
+    main > #redes-sociais-post li {
+      margin-bottom: 0.8em; }
+    main > #redes-sociais-post.fixado {
+      position: fixed; }
 
 /*# sourceMappingURL=layout.css.map */

@@ -2,7 +2,7 @@
 
 .blog-rentavel{
 	&, &:before{
-		background-color: #FCF3F1;
+		background-color: $rosa-claro;
 	}
 	@include display(flex);
 	
