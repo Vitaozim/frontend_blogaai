@@ -346,6 +346,68 @@
 }
 
 
+
+/* ESTILO PADRAO LINK BOOKMARK */
+
+span.wpfp-span{
+
+	.wpfp-img{
+		display: none;
+	}
+	a{
+		i{
+			&:nth-child(2){
+				display: none;
+			}
+		}
+
+		&:hover{
+			i{
+				&:nth-child(1){
+					display: none;
+				}
+
+				&:nth-child(2){
+					display: inline;
+				}
+			}
+		}
+	}
+
+}
+
+
+
+
+/* TOPO CURSOS E MATERIAIS */
+
+section{
+	.topo-pag-interna{
+		margin-bottom: 4em;
+		width: $largura-container-menor;
+		max-width: 100%;
+		h5{
+			font-style: 0.8em;
+			text-transform: uppercase;
+			color: $grafite-claro;
+		}
+
+		h1{
+			margin: 0.5em 0;
+			font-style: 2.5em;
+			color: $grafite;
+			font-family: $fonte-corpo;
+		}
+
+		p{
+			font-size: 1em;
+			color: $grafite;
+
+		}
+	}
+}
+
+
 /* CARD */
 
 .card{
@@ -425,7 +487,7 @@
 	// Chamei de container texto mas eh o container tbm do botao de "ver mais" e tambem de boomark:;
 	.container-texto{
 		margin-top: 1em;
-		padding-bottom: 2em;
+		padding-bottom: 3em;
 		color: $grafite;
 
 		.titulo-e-txt{
@@ -434,25 +496,32 @@
 				font-family: $fonte-corpo;
 				font-size: 1em;
 				font-weight: bold;
+				margin-bottom: 0.5em;
+
 			}
 			p{
 				
 			}
 		}
 
-
-		.alinhador{
-			margin-top: 2em;
-		}
-
-		a.ver-mais{
+		.alinhador, & > a.ver-mais, & > a.botao-padrao{
 			bottom: 1em;
 			left: 1em;
 			position: absolute;
-			display: block;
-			// margin-top: 2em;
+		}
+
+		& > a.ver-mais{
 			color: $vermelho;
 		}
+
+		& > a.ver-mais, & > a.botao-padrao{
+			display: block;
+		}
+
+		.alinhador{
+			width: calc(100% - 2em);
+		}
+
 		span.wpfp-span{
 			float: right;
 			// margin: 0 0 0.5em 0.5em;
@@ -461,27 +530,8 @@
 			a{
 				color: $vermelho;
 				padding: 0 0 .5em .5em;
-				i{
-					&:nth-child(2){
-						display: none;
-					}
-				}
-
-				&:hover{
-					i{
-						&:nth-child(1){
-							display: none;
-						}
-
-						&:nth-child(2){
-							display: inline;
-						}
-					}
-				}
 			}
-
 		}
-		
 	}
 
 
@@ -522,6 +572,26 @@
 		&:hover{
 			@include transform(translateY(-10px));
 			box-shadow: 0px 10px 15px 0 rgba(0,0,0,0.12);
+		}
+	}
+
+
+	// cards de Ferramentas
+	&.ferramenta{
+		.container-imagem{
+			.img-em-bg{
+				background-image: none;
+				
+				img.main-img{
+					top: 50%;
+					left: 50%;
+					@include transform(translate(-50%,-50%));
+					width: auto;
+					height: auto;
+					max-width: calc(100% - 1em);
+					max-height: calc(100% - 1em);
+				}
+			}
 		}
 	}
 
@@ -569,7 +639,7 @@
 					
 				}
 
-				.alinhador, a.ver-mais{
+				.alinhador, & > a.ver-mais, & > a.botao-padrao{
 					position: static;
 					margin-top: 1em;
 				}
@@ -592,26 +662,6 @@
 					a.ver-mais{
 						left: auto;
 						right: 0;
-					}
-				}
-			}
-
-
-			// Ferramentas
-			&.ferramenta{
-				.container-imagem{
-					.img-em-bg{
-						background-image: none;
-						
-						img.main-img{
-							top: 50%;
-							left: 50%;
-							@include transform(translate(-50%,-50%));
-							width: auto;
-							height: auto;
-							max-width: calc(100% - 1em);
-							max-height: calc(100% - 1em);
-						}
 					}
 				}
 			}

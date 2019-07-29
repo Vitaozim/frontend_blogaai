@@ -1,0 +1,136 @@
+section.ferramentas-recursos{
+	padding-top: 4em;	
+	padding-bottom: 4em;
+
+	.topo-pag-interna{
+		margin-bottom: 2em;
+	}	
+
+	.area-ferramentas{
+		@include display(flex);
+		@include justify-content(flex-end);
+		@media screen and (max-width: $tamanho-tablet-vertical){
+			@include flex-direction(column);
+			// @include justify-content(center);
+			@include align-items(center);
+		}
+
+		.lista-ferramentas{
+			padding-top: 2em;
+			width: $largura-container-menor;
+			@media screen and (max-width: $tamanho-notebook){
+				width: 700px;
+			}
+
+			@media screen and (max-width: $tamanho-tablet){
+				width: 550px;
+				max-width: 100%;
+			}
+
+			@media screen and (max-width: $tamanho-tablet-vertical){
+				@include order(2);
+			}
+
+		
+
+
+			.categoria{
+				&:not(:last-child){margin-bottom: 4em;}
+				
+				h2.nome-categoria{
+					padding-top: 90px;
+					margin-top: -90px;
+					margin-bottom: 0.5em;
+					font-style: 2em;
+					color: $grafite;
+					font-family: $fonte-corpo;
+					font-weight: bold;
+				}
+				p{
+					font-style: 1.25em;
+					margin-bottom: 1em;
+				}
+
+				ul.ferramentas-categoria{
+					li{
+						margin-bottom: 1em;
+						.container-imagem{
+							width: 20%;
+							@media screen and (max-width: $tamanho-tablet-vertical){
+								width: 30%;
+							}
+							@media screen and (max-width: $tamanho-smart-pequeno){
+								width: 100%;
+							}
+
+						}
+					}
+				}
+			}
+		}
+
+		.navegador-fixo{
+			width: 300px;
+
+
+			margin-top: 2em;
+			position: absolute;
+			background-color: $rosa;
+			padding: 2em 1.5em;
+
+			left: 0;
+			top: 0;
+			&.fixado{
+				position: fixed;
+				left: calc(50% - #{$largura-container} / 2);
+			}
+
+			@media screen and (max-width: $tamanho-notebook){
+				width: 180px;
+				padding: 1.5em 1em;
+				&.fixado{
+					left: 30px;
+				}
+			}
+
+			@media screen and (max-width: $tamanho-tablet-vertical){
+				&, &.fixado{
+					position: static;
+					left: auto;
+					top: auto;
+				}
+				@include order(1);
+				width: 300px;
+				max-width: 100%;
+				margin-top: 0;
+				padding: 2em 1.5em;
+
+			}
+
+			h3{
+				color: $vermelho;
+				font-size: 1.25em;
+				font-weight: bold;
+				margin-bottom: 1em;
+			}
+
+			.hashes-categorias{
+				li{
+					a{
+						display: block;
+						// font-weight: bold;
+						color: $grafite;
+						&:before{
+							content: "\f054";
+							margin-right: 0.4em;
+							font-family: "Font Awesome 5 Pro";
+							font-weight: 300;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	
+}

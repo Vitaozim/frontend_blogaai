@@ -103,10 +103,13 @@ img{
 
 input, textarea{
 	@include appearance(none);
-	border: none;
+	border: 1px solid $grafite-claro;
 	font-family: $fonte-corpo;
-	background-color: hsl(0,0%,94%);
+	background-color: transparent;
 	padding: 0.75em;
+	@include placeholder{
+		color: $grafite-claro;
+	}
 }
 
 textarea{
@@ -163,7 +166,7 @@ button{
 .isolador-img{
 	position: absolute;
 	top: -10000px; left: -10000px;
-	width: 100%;
+	width: 10px;
 }
 
 
@@ -234,8 +237,6 @@ $largura-container-menor: 800px;
 				content: none;
 			}
 		}
-		
-
 	}
 }
 

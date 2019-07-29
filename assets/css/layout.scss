@@ -7,12 +7,13 @@ $output-bourbon-deprecation-warnings: false !default;
 @import 'jquery.bxslider.min';
 @import 'jquery.fancybox.min';
 @import 'padroes';	
-
 @import 'componentes';
 @import 'cabecalho';
 @import 'home';
 @import 'rodape';
 @import 'busca';
 @import 'post';
+@import 'materiais-produtos';
+@import 'ferramentas-recursos';
 
 @import 'alteracoes';

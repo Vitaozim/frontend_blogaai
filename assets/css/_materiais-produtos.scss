@@ -1,0 +1,199 @@
+section.materiais-produtos{
+	padding-top: 4em;
+	padding-bottom: 4em;
+	
+
+	.lista-materiais-produtos{
+		@include display(flex);
+		@include flex-wrap(wrap);
+
+		@media screen and (max-width: $tamanho-smart-pequeno){
+			@include justify-content(center);
+		}
+
+		li.card{
+			width: calc(25% - .75em);
+			margin-right: 1em;
+			margin-bottom: 1em;
+			&:nth-child(4n){
+				margin-right: 0;
+			}
+			@media screen and (max-width: $tamanho-tablet-vertical){
+				width: calc(33.333333% - .666666em);
+				&:nth-child(4n){
+					margin-right: 1em;
+				}
+				&:nth-child(3n){
+					margin-right: 0;
+				}
+			}
+
+			@media screen and (max-width: $tamanho-smartphone){
+				width: calc(50% - 0.5em);
+				&:nth-child(3n){
+					margin-right: 1em;
+				}
+				&:nth-child(2n){
+					margin-right: 0;
+				}
+			}
+
+			@media screen and (max-width: $tamanho-smart-pequeno){
+				width: 90%;
+				margin-right: 0;
+			}
+
+
+
+			.container-imagem{
+				.img-em-bg{
+					padding-bottom: 100%;
+				}
+			}
+
+			.container-texto{
+				.titulo-e-txt{
+					h2{
+						color: $grafite;
+						font-weight: bold;
+					}
+
+					p{
+						color: $grafite;
+						font-size: 0.9em;
+					}
+				}
+			}
+
+		}
+	}
+}
+
+
+section.cursos{
+	padding-top: 3em;
+	padding-bottom: 3em;
+	&, &:before{
+		background-color: $rosa-claro;
+	}
+
+	& > h2{
+		font-size: 2em;
+		margin-bottom: 1em;
+		color: $grafite;
+	}
+
+	.cards-cursos{
+		@include display(flex);
+		@include justify-content(space-between);
+		@media screen and (max-width: $tamanho-tablet-vertical){
+			@include display(block);
+			width: 550px;
+			max-width: 100%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.card{
+			width: calc(50% - 1em);
+			.container-imagem{
+				width: 40%;
+			}
+			@media screen and (max-width: $tamanho-tablet-vertical){
+				width: 100%;
+				margin-bottom: 1em;
+				.container-imagem{
+					width: 30%;
+				}
+			}
+
+		}
+	}
+}
+
+section.depos{
+	padding-top: 3em;
+	padding-bottom: 3em;
+	
+
+	& > h2{
+		font-size: 2em;
+		margin-bottom: 1em;
+		color: $grafite;
+	}
+
+	.lista-depos{
+		@include display(flex);
+		@include justify-content(space-between);
+
+		@media screen and (max-width: $tamanho-tablet-vertical){
+			@include display(block);
+			width: 550px;
+			max-width: 100%;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.card-depo{
+			position: relative;
+			width: calc(33.33333% - .666666em);
+			@media screen and (max-width: $tamanho-tablet-vertical){
+				width: 100%;
+				margin-bottom: 1em;
+			}
+
+			padding: 1.25em;
+			box-shadow: $boxshadow-padrao;
+
+			&:before{
+				content: "";
+				font-family: "Font Awesome 5 Pro";
+				font-weight: 900;
+				position: absolute;
+				font-size: 8em;
+				right: 0.125em;
+				top: 0em;
+				color: $grafite;
+				pointer-events: none;
+				opacity: 0.1;
+				z-index: -1;
+			}
+			.foto-e-nome{
+				@include display(flex);
+				@include align-items(center);
+
+				margin-bottom: 0.5em;
+				.container-imagem{
+					@include flex-shrink(0);
+					width: 4.5em;
+					height: 4.5em;
+					margin-right: 1em;
+					border-radius: 50%;
+					background-size: cover;
+					background-repeat: no-repeat;
+					background-position: center center;
+					overflow: hidden;
+					img{
+						@extend .isolador-img;
+					}
+				}
+
+				.nome-e-insta{
+					h3{
+						font-size: 1.25em;
+						color: $grafite;
+						font-weight: 800;
+					}
+					a.insta{
+						display: block;
+						color: $grafite;
+						font-weight: bold;
+						&:hover{
+							text-decoration: underline;
+						}
+					}
+				}
+			}
+		}
+	}
+}

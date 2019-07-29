@@ -116,16 +116,20 @@ jQuery(document).ready(function($) {
 		var scrollAtual = $janela.scrollTop();
 		var $areapost = $("#post");
 		var $header = $("#header");
+		var telaPequena = widthJanela < 1000;
 		var posicoesFixacao = {};
 		var definirPosicoesFixacao = function(){
 			posicoesFixacao = {
-				iniciaFixo : $areapost.offset().top - $header.height(),
-				encerraFixo : $areapost.offset().top - $header.height() + $areapost.height() - $redes_sociais_post.height(),
-				topRedes : $areapost.height() - $redes_sociais_post.height()
+				iniciaFixo : $areapost.offset().top - $header.innerHeight(),
+				encerraFixo : $areapost.offset().top - $header.innerHeight() + $areapost.innerHeight() - (telaPequena ? $janela.height() : $redes_sociais_post.innerHeight()),
+				topRedes : $areapost.innerHeight() - $redes_sociais_post.innerHeight()
 			}
 		}
 
-		$janela.on('resize', definirPosicoesFixacao);
+		$janela.on('resize', function(){
+			var telaPequena = widthJanela < 1000;
+			definirPosicoesFixacao();
+		});
 
 		definirPosicoesFixacao();
 		$janela
@@ -139,12 +143,66 @@ jQuery(document).ready(function($) {
 			}
 
 			else{
-				$redes_sociais_post.addClass('fixado').css('top', ($header.height())+"px");
+				$redes_sociais_post.addClass('fixado').css('top', ($header.innerHeight())+"px");
 			}
 		})
 		.trigger("scroll");
 	}
 
+
+
+
+
+	// indice ferramentas
+	var $titulosCategoriasFerramentas = $("section.ferramentas-recursos .lista-ferramentas .categoria .nome-categoria");
+	var $indiceFerramentas = $("section.ferramentas-recursos .navegador-fixo");
+	if ($titulosCategoriasFerramentas.length > 0 && $indiceFerramentas.length > 0) {
+		var $listaIndice = $indiceFerramentas.find(".hashes-categorias");
+		var itemListaTemplate = $("<li><a href></a></li>");
+		$titulosCategoriasFerramentas.each(function(index, el) {
+			var txtNome = $(el).text();
+			var idNome = $(el).attr('id');
+			console.log(idNome, txtNome);
+			var itemClone = itemListaTemplate.clone();
+			itemClone.find("a").attr("href", "#"+idNome).text(txtNome);
+			$listaIndice.append(itemClone);
+		});
+
+		var scrollAtual = $janela.scrollTop();
+		var $containerIndice = $("section.ferramentas-recursos .area-ferramentas");
+		var $header = $("#header");
+		var telaPequena = widthJanela < 1000;
+		var posicoesFixacao = {};
+		var definirPosicoesFixacao = function(){
+			posicoesFixacao = {
+				iniciaFixo : $containerIndice.offset().top - $header.innerHeight(),
+				encerraFixo : $containerIndice.offset().top - $header.innerHeight() + $containerIndice.innerHeight() - $indiceFerramentas.innerHeight(),
+				topRedes : $containerIndice.innerHeight() - $indiceFerramentas.outerHeight()
+			}
+		}
+
+		$janela.on('resize', function(){
+			var telaPequena = widthJanela < 1000;
+			definirPosicoesFixacao();
+		});
+
+		definirPosicoesFixacao();
+		$janela
+		.on('scroll', function(event) {
+			if ($(this).scrollTop() < posicoesFixacao.iniciaFixo) {
+				$indiceFerramentas.removeClass('fixado').css('top', '');
+			}
+
+			else if($(this).scrollTop() > posicoesFixacao.encerraFixo){
+				$indiceFerramentas.removeClass('fixado').css('top', posicoesFixacao.topRedes+"px");
+			}
+
+			else{
+				$indiceFerramentas.addClass('fixado').css('top', ($header.innerHeight())+"px");
+			}
+		})
+		.trigger("scroll");
+	}
 });
 
 
