@@ -86,11 +86,15 @@ section.ferramentas-recursos{
 			}
 
 			@media screen and (max-width: $tamanho-notebook){
-				width: 180px;
+				width: 220px;
 				padding: 1.5em 1em;
 				&.fixado{
 					left: 30px;
 				}
+			}
+
+			@media screen and (max-width: $tamanho-tablet){
+				width: 180px;
 			}
 
 			@media screen and (max-width: $tamanho-tablet-vertical){
